@@ -50,10 +50,10 @@ function formatDate(date) {
 //7. function to tell JS to substitute the user's input as
 //the cityName city part of the apiUrl that axois
 // got for us.
-function makeTheApiKeyMatchTheCity() {
+function makeTheApiKeyMatchTheCity(cityName) {
   let apiKey = "c695b4fc90b605eea29b70ecbaft3f9o";
-  let userSearch = document.querySelector("#user-search");
-  let cityName = userSearch.value;
+  // let userSearch = document.querySelector("#user-search");
+  // let cityName = userSearch.value;
   let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${cityName}&key=${apiKey}`;
   axios.get(apiUrl).then(hereWeGo);
   // function writeTheNewCity (makeTheApiKeyMatchTheCity);
@@ -100,4 +100,5 @@ function displayForecast() {
   forecastBlock.innerHTML = forecastHtml;
 }
 
+makeTheApiKeyMatchTheCity("Paris");
 displayForecast();
