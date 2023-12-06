@@ -78,3 +78,26 @@ function heybaby(event) {
 //1. selecting the whole form and adding a submit event listener
 let form = document.querySelector("#form");
 form.addEventListener("submit", heybaby);
+
+function displayForecast() {
+  let days = ["Wed", "Thu", "Fri", "Sat", "Sun", "Mon", "Tue"];
+  let forecastHtml = "";
+
+  days.forEach(function (day) {
+    forecastHtml =
+      forecastHtml +
+      `<div class="forecast">
+    <div class="forecastDay">Mon</div>
+    <div class="forecastIcon">🌄</div>
+    <div class="forecastTemperatures">
+      <span class="temperatureHigh">12&deg;</span>
+      <span class="temperatureLow">9&deg;</span>
+    </div>
+  </div>`;
+  });
+
+  let forecastBlock = document.querySelector("#forecastBlock");
+  forecastBlock.innerHTML = forecastHtml;
+}
+
+displayForecast();
