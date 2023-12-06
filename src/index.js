@@ -22,6 +22,8 @@ function hereWeGo(response) {
   bigTemperature.innerHTML = Math.round(response.data.temperature.current);
   formatDate(date); //needed somewhere else
   // console.log(response);
+
+  getForecast(response.data.city);
 }
 
 function formatDate(date) {
@@ -79,7 +81,15 @@ function heybaby(event) {
 let form = document.querySelector("#form");
 form.addEventListener("submit", heybaby);
 
-function displayForecast() {
+function getForecast(cityName) {
+  let apiKey = "c695b4fc90b605eea29b70ecbaft3f9o";
+  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${cityName}}&key=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(displayForecast);
+}
+
+function displayForecast(response) {
+  console.log(response);
+
   let days = ["Wed", "Thu", "Fri", "Sat", "Sun", "Mon", "Tue"];
   let forecastHtml = "";
 
@@ -90,8 +100,8 @@ function displayForecast() {
     <div class="forecastDay">Mon</div>
     <div class="forecastIcon">🌄</div>
     <div class="forecastTemperatures">
-      <span class="temperatureHigh">12&deg;</span>
-      <span class="temperatureLow">9&deg;</span>
+      <div class="temperatureHigh">12&deg;</div>
+      <div class="temperatureLow">9&deg;</div>
     </div>
   </div>`;
   });

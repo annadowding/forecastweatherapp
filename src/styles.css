@@ -102,28 +102,25 @@ footer {
   color: rgba(39, 33, 66, 0.4);
 }
 
-.forecast {
+.forecastBlock {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
   text-align: center;
   line-height: 30px;
 }
 
-.forecastDay {
-  opacity: 0.9;
-}
-
-.forecastIcon {
-  font-size: 20px;
-}
-
 .forecastTemperatures {
   color: red;
+  display: flex;
 }
 
-.forecastTemperatures .temperatureHigh {
+.temperatureHigh,
+.temperatureLow {
   font-weight: bold;
+  padding: 4px;
 }
 
-.forecastTemperatures .temperatureLow {
-  font-weight: bold;
+.temperatureLow {
   opacity: 0.5;
 }
